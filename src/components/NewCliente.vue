@@ -2,13 +2,10 @@
   <div class="divPrincipal container">
     <form @submit="onSubmit">
       <div class="form-group">
-        <input v-model="form.title" type="text" class="form-control" placeholder="Título" required>
+        <input v-model="form.nome" type="text" class="form-control" placeholder="Nome" required>
       </div>
       <div class="form-group">
-        <input v-model="form.descricao" type="text" class="form-control" placeholder="Descrição" required>
-      </div>
-      <div class="form-group">
-        <input v-model="form.preco" type="text" class="form-control" placeholder="Preço" required>
+        <input v-model="form.numero" type="text" class="form-control" placeholder="Número" required>
       </div>
       <button type="submit" class="btn btn-success btn-lg btn-block">
         <b-spinner label="Spinning" v-if="isLoading"></b-spinner>
@@ -25,9 +22,8 @@ export default {
   data() {
     return {
       form: {
-        title: '',
-        descricao: '',
-        preco: '',
+        nome: '',
+        numero: '',
       },
       isLoading: false,
     };
@@ -38,7 +34,7 @@ export default {
       this.isLoading = true;
       // let form = this.form;
       // form.preco.replace(',', '.');
-      reqPost('/produtos', this.form).then((res) => {
+      reqPost('/clientes', this.form).then((res) => {
         this.isLoading = false;
         this.$router.go(-1);
       }).catch((err) => {

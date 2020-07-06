@@ -6,7 +6,7 @@
         <h1>Clientes</h1>
       </b-col>
       <b-col cols="auto" class="p-3">
-        <b-button variant="success" href="/#/produtos/novo">Novo</b-button>
+        <b-button variant="success" href="/#/clientes/novo">Novo</b-button>
       </b-col>
     </b-row>
     <div v-if="loading" class="loading">
