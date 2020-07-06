@@ -83,7 +83,7 @@ export default {
       });
     },
     deletarRegistro(item) {
-      const resp = confirm(`Deseja realmente deletar o produto '${item.title}'?`);
+      const resp = confirm(`Deseja realmente deletar o cliente '${item.nome}'?`);
       if(resp){
         reqDel(`/clientes/${item._id}`).then((res) => {
           this.fetchData();
