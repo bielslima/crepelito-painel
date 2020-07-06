@@ -1,17 +1,14 @@
 <template>
   <div class="divPrincipal container">
-    <form @submit="onSubmit" v-if="prod">
+    <form @submit="onSubmit" v-if="cli">
       <div class="form-group">
-        <input v-model="prod.title" type="text" class="form-control" placeholder="Título" required>
+        <input v-model="cli.nome" type="text" class="form-control" placeholder="Nome" required>
       </div>
       <div class="form-group">
-        <input v-model="prod.descricao" type="text" class="form-control" placeholder="Descrição" required>
-      </div>
-      <div class="form-group">
-        <input v-model="prod.preco" type="text" class="form-control" placeholder="Preço" required>
+        <input v-model="cli.numero" type="text" class="form-control" placeholder="Número">
       </div>
       <div class="form-group row" style="padding-left: 25px">
-        Ativo: <b-form-checkbox v-model="prod.isActive" name="check-button" switch size="lg" ></b-form-checkbox>
+        Ativo: <b-form-checkbox v-model="cli.isActive" name="check-button" switch size="lg" ></b-form-checkbox>
       </div>
       <button type="submit" class="btn btn-success btn-lg btn-block">
         <b-spinner label="Spinning" v-if="isLoading"></b-spinner>
@@ -28,20 +25,20 @@ const reqGet = require('../controllers/getRequest');
 export default {
   data() {
     return {
-      prod: null,
+      cli: null,
       isLoading: false,
     };
   },
   created() {
-    this.fetchProduto();
+    this.fetchCliente();
     // console.log(this.$route);
   },
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
       this.isLoading = true;
-      reqPut(`/produtos/${this.$route.params.id}`, this.prod).then(() => {
-        alert("Produto alterado com sucesso!");
+      reqPut(`/clientes/${this.$route.params.id}`, this.cli).then(() => {
+        alert("Cliente alterado com sucesso!");
         this.isLoading = false;
         this.$router.go(-1);
       }).catch((err) => {
@@ -49,9 +46,9 @@ export default {
         alert(err);
       });
     },
-    fetchProduto() {
-      reqGet(`/produtos/${this.$route.params.id}`).then((res) => {
-        this.prod = res.data;
+    fetchCliente() {
+      reqGet(`/clientes/${this.$route.params.id}`).then((res) => {
+        this.cli = res.data;
       }).catch((err) => {
         alert(err);
       });

@@ -29,7 +29,6 @@
             <th scope="row">{{row._id}}</th>
             <td>{{row.nome}}</td>
             <td>{{row.numero}}</td>
-            <td>R$ {{row.preco.toFixed(2).replace('.',',')}}</td>
             <td><span :class="['dot ' + row.isActive]"></span></td>
             <td>
               <b-button variant="primary" v-on:click="editProd(row)"><b-icon icon="pencil"></b-icon></b-button>
