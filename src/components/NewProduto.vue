@@ -36,6 +36,8 @@ export default {
     onSubmit(evt) {
       evt.preventDefault();
       this.isLoading = true;
+      // let form = this.form;
+      // form.preco.replace(',', '.');
       reqPost('/produtos', this.form).then((res) => {
         this.isLoading = false;
         this.$router.go(-1);
