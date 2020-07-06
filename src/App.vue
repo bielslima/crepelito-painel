@@ -10,6 +10,7 @@
           <b-navbar-nav>
             <b-nav-item href="/#/">Painel</b-nav-item>
             <b-nav-item href="#/produtos">Produtos</b-nav-item>
+            <b-nav-item href="#/clientes">Clientes</b-nav-item>
             <b-nav-item href="#/relatorios">Relatórios</b-nav-item>
           </b-navbar-nav>
           <!-- Right aligned nav items -->

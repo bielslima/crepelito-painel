@@ -5,6 +5,9 @@ import Relatorios from '@/components/Relatorios';
 import Produtos from '@/components/Produtos';
 import NovoProduto from '@/components/NewProduto';
 import EditProduto from '@/components/EditProduto';
+import Clientes from '@/components/Clientes';
+import NovoCliente from '@/components/NewCliente';
+import EditCliente from '@/components/EditCliente';
 
 Vue.use(Router);
 
@@ -29,6 +32,21 @@ export default new Router({
       path: '/produtos/edit/:id',
       name: 'eProduto',
       component: EditProduto,
+    },
+    {
+      path: '/clientes',
+      name: 'clientes',
+      component: Clientes,
+    },
+    {
+      path: '/clientes/novo',
+      name: 'nClientes',
+      component: NovoCliente,
+    },
+    {
+      path: '/clientes/edit/:id',
+      name: 'eClientes',
+      component: EditCliente,
     },
     {
       path: '/relatorios',
